@@ -21,7 +21,7 @@ public class TaskController {
     //нам нужно его только использовать
     public String index(Model model){
         model.addAttribute("tasks", tasks); //этот метод помещает наш список задач в модель по ключу "tasks"
-        return "index";//'nj это имя представления - то, что увидим на экране. Веб-страница то есть.
+        return "index";//это имя представления - то, что увидим на экране. Веб-страница то есть.
         // По дефолту спринг будет искать страницы по адресу resources/templates
         //создадим по этому пути файл index.html
     }
@@ -48,6 +48,26 @@ public class TaskController {
         if (task != null){
             model.addAttribute("task", task);
             return "edit";
+        }
+        return "redirect:/";
+    }
+
+    @PostMapping("/task/edit")
+    public String editTask(@ModelAttribute Task task){
+        Task existedTask = findTaskById(task.getId());
+        if (existedTask != null){
+            existedTask.setPriority(task.getPriority());
+            existedTask.setDescription(task.getDescription());
+            existedTask.setTitle(task.getTitle());
+        }
+        return "redirect:/";
+    }
+
+    @GetMapping("/task/delete/{id}")
+    public String deleteTask(@PathVariable Long id){
+        Task task = findTaskById(id);
+        if (task != null){
+            tasks.remove(task);
         }
         return "redirect:/";
     }
