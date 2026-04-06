@@ -1,4 +1,5 @@
 package com.example.simple_web;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,6 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
+@Profile("v2")//это уже когда позже мы начали "расслаивать" приложение, я предпочел не комментироват контрллер,
+// а сделать новый и разбить по профилям через application.properties и аннотацию @Profile
 public class TaskController {
 
     private final List<Task> tasks = new ArrayList<>();

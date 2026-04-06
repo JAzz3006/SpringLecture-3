@@ -2,7 +2,6 @@ package com.example.simple_web.repository;
 import com.example.simple_web.Task;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -50,8 +49,5 @@ public class InMemoryTaskRepository implements TaskRepository{
     public void deleteById(Long id) {
         log.debug("Call delete() from InMemoryTaskRepository? Id is {}", id);
         findById(id).ifPresent(tasks::remove);
-
-
-
     }
 }

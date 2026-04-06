@@ -4,37 +4,42 @@ import com.example.simple_web.repository.TaskRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service
 @RequiredArgsConstructor
 @Slf4j
-public class TAskServiceImpl implements TaskService{
+public class TaskServiceImpl implements TaskService{
 
     private final TaskRepository taskRepository;
+
     @Override
     public List<Task> findAll() {
-        return null;
+        log.debug("Call findAll() from TaskServiceImpl");
+        return taskRepository.findAll();
     }
 
     @Override
     public Task findById(Long id) {
-        return null;
+        log.debug("Call findById() from TaskServiceImpl");
+        return taskRepository.findById(id).orElse(null);
     }
 
     @Override
     public Task save(Task task) {
-        return null;
+        log.debug("Call save() from TaskServiceImpl");
+        return taskRepository.save(task);
     }
 
     @Override
     public Task update(Task task) {
-        return null;
+        log.debug("Call update() from TaskServiceImpl");
+        return taskRepository.update(task);
     }
 
     @Override
     public void deleteById(Long id) {
-
+        log.debug("Call deleteById() from TaskServiceImpl");
+        taskRepository.deleteById(id);
     }
 }
