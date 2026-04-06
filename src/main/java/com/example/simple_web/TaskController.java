@@ -5,7 +5,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,13 +32,13 @@ public class TaskController {
         return "create";
     }
 
+    //метод запускается, когда юзер нажмет кнопку, отправляется запрос на адрес, триггерит метод
     @PostMapping("/task/create")
     //а это обработка пост-запроса.
-    public String createTask(@ModelAttribute Task task){
-        task.setId(System.currentTimeMillis());
-        tasks.add(task);
-
-        return "redirect:/";
+    public String createTask(@ModelAttribute Task task){//атрибут говорит, возьми и сделай объект из тела запроса, который стриггерил метод
+        task.setId(System.currentTimeMillis()); //id присваивается системой, как в настоящей БД)))
+        tasks.add(task);//добавляется в коллекцию уже готовый объект
+        return "redirect:/";//переадресация на начальную страницу
     }
 
     @GetMapping("/task/edit/{id}")
