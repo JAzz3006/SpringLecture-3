@@ -1,7 +1,9 @@
 package com.example.simple_web;
 import lombok.Data;
+import lombok.experimental.FieldNameConstants;
 
 @Data
+@FieldNameConstants
 public class Task {
 
     private Long id;

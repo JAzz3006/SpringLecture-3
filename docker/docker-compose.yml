@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  postgres:
+    image: postgres:12.3 # здесь мы создаем контейнер на базе (уже суще-го) image postgres:12.3
+    ports:
+      - "5432:5432" #открываем порты для работы с БД
+    environment: #добавим дефолтные переменные для БД
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=tasks
+    volumes: # это механизм для сохраниения и управления данными
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql #это нужно, чтобы .sql-файл выполнился
+      # указываем наш файл : и куда он будет положен в нашем контейнере

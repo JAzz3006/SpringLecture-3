@@ -1,7 +1,6 @@
 package com.example.simple_web.controller;
 import com.example.simple_web.Task;
 import com.example.simple_web.service.TaskService;
-import com.example.simple_web.service.TaskServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Controller;

@@ -1,6 +1,7 @@
 package com.example.simple_web.repository;
 import com.example.simple_web.Task;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Repository;
 import java.util.ArrayList;
 import java.util.List;
@@ -8,6 +9,7 @@ import java.util.Optional;
 
 @Repository
 @Slf4j
+@Profile("v1")
 public class InMemoryTaskRepository implements TaskRepository{
 
     private final List<Task> tasks = new ArrayList<>();
