@@ -52,4 +52,9 @@ public class InMemoryTaskRepository implements TaskRepository{
         log.debug("Call delete() from InMemoryTaskRepository? Id is {}", id);
         findById(id).ifPresent(tasks::remove);
     }
+
+    @Override
+    public void batchInsert(List<Task> tasks) {
+        this.tasks.addAll(tasks);
+    }
 }

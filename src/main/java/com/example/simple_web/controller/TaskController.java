@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
-@Profile("v1")
+@Profile("v3")
 @RequiredArgsConstructor
 public class TaskController {
 

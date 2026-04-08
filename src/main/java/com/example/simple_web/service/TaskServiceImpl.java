@@ -42,4 +42,9 @@ public class TaskServiceImpl implements TaskService{
         log.debug("Call deleteById() from TaskServiceImpl");
         taskRepository.deleteById(id);
     }
+
+    @Override
+    public void batchInsert(List<Task> tasks) {
+        taskRepository.batchInsert(tasks);
+    }
 }
